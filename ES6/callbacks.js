@@ -1,51 +1,3 @@
-// function makefryanda(callback){
-//     setTimeout(() => {
-//         console.log("ANDA FRIED")
-//     }, 1000);
-        
-
-
-// }
-
-// // function andafried(param){
-// //     console.log(param);
-    
-
-// // }
-
-// // makefryanda(andafried);
-
-
-
-// function toastbread(cb) {
-//     setTimeout(() => {
-//         console.log("BREAD TOASTED")
-//     }, 3000);
-    
-// }
-
-// // function toastready(para){
-// //     console.log(para);
-// // }
-
-// // toastbread(toastready)
-
-// toastbread(function(para){
-//     console.log(para);
-//     makefryanda(function(param){
-//         console.log(param)
-//     })
-
-
-// }
-
-// )
-
-
-
-
-
-
 // Array to store data in server
 const students = [
     {name:"Saim", age: 21},
@@ -84,20 +36,57 @@ enrollStudents(newStudent,getStudents)
 
 
 
-// Simple Example of Fried Anda
+// // Simple Example of Fried Anda
 
-// function makefryanda(callback){
-//     setTimeout(() => {
-//         console.log("Anda is going to be fried");
-//         callback()
-//     },3000);
-// }
+function makefryanda(callback){
+    setTimeout(() => {
+        console.log("Anda is going to be fried");
+        callback()
+    },3000);
+}
 
-// function andafried(){
-//     setTimeout(() => {
-//         console.log("Anda is fried")
-//     },2000);
-// }
+function andafried(){
+    setTimeout(() => {
+        console.log("Anda is fried")
+    },2000);
+}
 
-// makefryanda(andafried);
+makefryanda(andafried);
+
+
+
+// //Example of Multiple Calbacks
+function makeanda(cb1,cb2,cb3){
+    setTimeout(() => {
+        console.log("Make Anda Fry")
+        cb1()
+        cb2()
+        cb3()
+    }, 1000);
+}
+
+function andafried(){
+    setTimeout(() => {
+        console.log("Anda Fried")
+       
+    }, 1500);
+}
+
+
+function makesandwich(){
+    setTimeout(() => {
+        console.log("Making Sandwich")
+    }, 2000);
+}
+
+function sandwichmade(){
+    setTimeout(() => {
+        console.log("Sandwich Made")
+    }, 2500);
+}
+
+
+
+
+makeanda(andafried,makesandwich,sandwichmade);
 
