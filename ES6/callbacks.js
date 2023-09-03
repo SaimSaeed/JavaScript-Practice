@@ -90,3 +90,43 @@ function sandwichmade(){
 
 makeanda(andafried,makesandwich,sandwichmade);
 
+// Two variables defined
+let userLeft = false;
+let userWatchCatMeme = false;
+// Function taking two callbacks
+function callBackTut(callback,errorCallBack){
+    // Condition for first variable if true
+if(userLeft){
+    
+    errorCallBack(
+        {
+            message:"user left"
+        }
+    )
+}
+// Second Variable Condition if true
+else if (userWatchCatMeme){
+    
+    errorCallBack(
+        {
+            message:"User Watching Meme"
+        }
+    )
+}
+// Main Callback Condition
+else{
+  
+    callback({
+        message:"user"
+    }
+    )
+}
+}
+// Getting message value and also setting up error management 
+callBackTut((message)=>{
+    console.log(message)
+
+},(error)=>{console.log(error.message)})
+
+
+

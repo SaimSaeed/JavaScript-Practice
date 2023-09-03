@@ -1,77 +1,91 @@
-// let promise= new Promise (function(resolve,reject) {
-// let x=10;
-// if(x>=10){
-// console.log("SUCCESS")
-// }
-// else{
-//     console.log("ERROR")
+// New Promise is created
+// Two Parameters are taken resolve and reject
+let p = new Promise ((resolve,reject)=>{
+    // a variable is defined
+    let a = 1+1;
+    // Condition is written for promise
+    if(a==2){
+        resolve("Success");
 
-// }
-// });
-// promise.then(
-//     function(value){
-//         console.log("SUCCESS",value);
-//     },
-//     function(value){
-//         console.log("ERROR",value)
-//     }
-// );
-
-
-// const promise= new Promise((resolve, reject) => {
-//     resolve("SUCCESS");
-// })
-// .then(value => {
-//     console.log(value)
-//     return "we";
-// })
-// .then(value=>{
-//     console.log(value)
-//     return "can";
-// })
-// .then(value=>{
-//     console.log(value)
-//     return "do";
-// })
-// .then(value=>{
-//     console.log(value)
-//     return "this";
-// })
-// .then(value=>{
-//     console.log(value)
-// })
-// .catch(value=> {
-//     console.log(value)
-// })
-
-
-
-
-
-const promise = new Promise((resolve,reject) => {
-    resolve("Start Counting");
-    
-    function counter(value){
-        console.log(value);
+    }else{
+        reject("Failed")
     }
-    
 })
 
-.then(value=> {
-    console.log(value)
-    return "one";
+// Then will get resolve value
+p.then((message)=>{
+    console.log("Promise is  ",message)
+}).catch((message)=>{
+    // Catch will get reject value
+    console.log("Promise is",message)
+}) 
+
+
+// Two variables defined
+let userLeft = false;
+let userWatchCatMeme = false;
+// Function taking two parameters
+function PromisesTut(){
+    // Returning promise
+    return new Promise((resolve,reject) =>{
+    // Condition for first variable if true
+if(userLeft){
+    
+    reject(
+        {
+            message:"user left"
+        }
+    )
+}
+// Second Variable Condition if true
+else if (userWatchCatMeme){
+    
+    reject(
+        {
+            message:"User Watching Meme"
+        }
+    )
+}
+// Main promise Condition
+else{
+  
+    resolve({
+        message:"user"
+    }
+    )
+}
+    })
+}
+// Getting message value and also setting up error management 
+PromisesTut().then((message)=>{
+    console.log("Message is",message.message)
+}).catch((error)=>{
+    console.log(error.message)
 })
-.then(value=> {
-    console.log(value)
-    return "two";
+   
+
+// Promise Methods
+// Three Promises Defined
+let q = new Promise ((resolve,reject)=>{
+    resolve("Video 1 Recorded")
 })
-.then(value=> {
-    console.log(value)
-    return "three";
+
+let r = new Promise ((resolve,reject)=>{
+    resolve("Video 2 Recorded")
 })
-.then(value=>{
-    console.log(value)
+
+let s = new Promise ((resolve,reject)=>{
+    resolve("Video 3 Recorded")
 })
-.catch(value=>{
-console.log(value);
+// Promise.all will get all promises when they are completed one by one
+Promise.all([
+    q,r,s
+]).then((message)=>{
+    console.log(message)
+})
+// Promise.race will get the first promise that is completed
+Promise.race([
+    q,r,s
+]).then((message)=>{
+    console.log(message)
 })
